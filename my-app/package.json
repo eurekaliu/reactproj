@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eurekaliu.github.io/reactproj/my-app",
+  "homepage": "https://eurekaliu.github.io/reactproj/my-app/public",
   "dependencies": {
     "@antv/data-set": "^0.9.5",
     "@antv/g2": "^3.2.7",
