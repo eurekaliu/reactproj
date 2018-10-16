@@ -29,6 +29,8 @@ const MenuItemGroup = Menu.ItemGroup;
 const ButtonGroup = Button.Group;
 const { Header, Footer, Sider, Content } = Layout;
 const FormItem = Form.Item;
+const Search = Input.Search;
+
 const menu = (
   <Menu onClick={handleMenuClick}>
     <Menu.Item key="1">所有使用者</Menu.Item>
@@ -301,19 +303,20 @@ class App2 extends React.Component {
           <Row>
             <Col span={20} offset={2}>
               <h1 style={{marginTop:'16px', marginBottom:'16px',fontFamily: 'Microsoft JhengHei UI', fontSize: '32px'}}>學習管理中心</h1>
-              <Menu
-                selectedKeys={["mail"]} mode="horizontal" style={{backgroundColor:'#f4f4f4'}}>
-                <Menu.Item key="o1" style={{fontFamily: 'Microsoft JhengHei UI', fontSize: '16px'}}>
-                  總覽
+
+              <Menu selectedKeys={["mail"]} mode="horizontal" style={{backgroundColor: '#ffffff00'}}>
+              
+                <Menu.Item key="online" className={'topnav_bar_item'}style={{fontFamily: 'Microsoft JhengHei UI', fontSize: '16px'}}>
+                總覽
                 </Menu.Item>
-                <Menu.Item key="mail" style={{fontFamily: 'Microsoft JhengHei UI', fontSize: '16px'}}>
-                  學員學習狀態
+                <Menu.Item key="course" className={'topnav_bar_item'}>
+                學員學習狀態
                 </Menu.Item>
-                <Menu.Item key="o2" style={{fontFamily: 'Microsoft JhengHei UI', fontSize: '16px'}}>
-                  課程運用狀態
+                <Menu.Item key="grow" className={'topnav_bar_item'}>
+                課程運用狀態
                 </Menu.Item>
-                <Menu.Item key="o3" style={{fontFamily: 'Microsoft JhengHei UI', fontSize: '16px'}}>
-                  企業學習計畫
+                <Menu.Item key="free" className={'topnav_bar_item'}>
+                企業學習計畫
                 </Menu.Item>
               </Menu>
             </Col>
@@ -323,9 +326,9 @@ class App2 extends React.Component {
           <Col span={20} offset={2}>
             <Row style={{marginTop:'30px'}}>
               <Col span={20}>
-                <ButtonGroup size={'large'}>
-                  <Button onClick={reportOnclick}>學習報表</Button>
-                  <Button onClick={listOnclick}>學員列表</Button>
+                <ButtonGroup>
+                  <Button className={'button_medium' +' button_primary'} onClick={reportOnclick}>學習報表</Button>
+                  <Button className={'button_medium' +' button_group2'} onClick={listOnclick}>學員列表</Button>
                 </ButtonGroup>
               </Col>
             </Row>
@@ -346,19 +349,19 @@ class App3 extends React.Component {
 
           <Row style={{marginTop:'30px'}}>
             <Col span={20}>
-              <Dropdown overlay={menu}>
-                <Button style={{ width: 180 ,fontSize:'14px'}} size={'large'}>
+              <Dropdown overlay={menu} className={'dropdown_default'}>
+                <Button >
                   所有使用者<Icon type="down" />
                 </Button>
               </Dropdown>
-              <Button style={{ width: 180, backgroundColor: '#333333', color: '#fff',marginLeft: 10,fontSize:'14px'}} size={'large'}>
+              <Button style={{ marginLeft: 10}} className={'button_medium' + ' button_primary'}>
                 新增群組比較
               </Button>
             </Col>
             <Col span={2}>
-              <Dropdown overlay={menu2}>
-                <Button style={{ width: 180,fontSize:'14px' }} size={'large'}>
-                  最近7天<Icon type="down" />
+              <Dropdown overlay={menu2} className={'dropdown_default'}>
+                <Button >
+                最近7天<Icon type="down" />
                 </Button>
               </Dropdown>
             </Col>
@@ -436,15 +439,16 @@ class App3 extends React.Component {
             <Card>
               <Row>
                 <Col span={20}>
-                <Dropdown overlay={menu3} >
-                <Button style={{ width: 180 ,fontSize:'14px',marginRight:'10px'}} size={'large'}>
-                  完課率<Icon type="down" />
+                <Dropdown overlay={menu3} className={'dropdown_default'}>
+                <Button  style={{marginRight:'10px'}}>
+                完課率<Icon type="down" />
                 </Button>
               </Dropdown>
+
               對比
-              <Dropdown overlay={menu4} >
-                <Button style={{ width: 180 ,fontSize:'14px',backgroundColor: '#333333', color: '#fff',marginLeft:'10px'}} size={'large'}>
-                  比較指標<Icon type="down" />
+              <Dropdown overlay={menu4} className={'dropdown_primary'}>
+                <Button  style={{marginLeft:'10px'}}>
+                比較指標<Icon type="down" />
                 </Button>
               </Dropdown>
                 </Col>
@@ -474,24 +478,25 @@ class App4 extends React.Component {
             <Col span={6} style={{fontSize: '20px',fontFamily: 'Microsoft JhengHei UI'}}>
             學員數 1,234 人
             </Col>
-            <Col span={6}>
-              <Input placeholder="搜尋" postfix={<Icon type="search" />} size={'large'} />
-            </Col>
-            <Col span={3} style={{marginLeft:'20px'}}>
-            <Dropdown overlay={menu5}>
-                <Button style={{ fontSize:'14px',width:'125px'}} size={'large'}>
-                  排序<Icon type="down" />
+            <Col span={18}>
+              <Search
+              placeholder="搜尋"
+              onSearch={value => console.log(value)}
+              enterButton
+              className={'input_default'}
+            />
+            <Dropdown overlay={menu5} className={'dropdown_default'}>
+                <Button >
+                排序<Icon type="down" />
                 </Button>
               </Dropdown>
-            </Col>
-            <Col span={3}style={{marginLeft:'20px'}}>
+
               <Dropdown overlay={menu6}>
                 <Button style={{ fontSize:'14px',width:'125px'}} size={'large'}>
                   所有使用者<Icon type="down" />
                 </Button>
               </Dropdown>
-            </Col>
-            <Col span={3}style={{marginLeft:'20px'}}>
+
               <Dropdown overlay={menu2}>
                 <Button style={{ fontSize:'14px',width:'125px'}} size={'large'}>
                   今天<Icon type="down" />
